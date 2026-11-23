@@ -231,7 +231,7 @@ async function bootstrap() {
     app.use(vite.middlewares);
   } else if (fs.existsSync(distDir)) {
     app.use(express.static(distDir));
-    app.get('/{*path}', (_req, res) => {
+    app.get('*', (_req, res) => {
       res.sendFile(path.join(distDir, 'index.html'));
     });
   }
